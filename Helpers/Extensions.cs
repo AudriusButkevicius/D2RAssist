@@ -1,6 +1,6 @@
-/**
- *   Copyright (C) 2021 okaygo
- *   
+﻿/**
+ *   Copyright (C) 2021 okaygo, OneXDeveloper
+ *
  *   https://github.com/misterokaygo/D2RAssist/
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -16,18 +16,23 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace D2RAssist
+using System.Drawing;
+using D2RAssist.Types;
+
+namespace D2RAssist.Helpers
 {
-    class SessionData
+    public static class Extensions
     {
-        public string id;
-        public uint difficulty;
-        public uint mapId;
+        public static bool IsTown(this Area area) =>
+            area == Area.RogueEncampment || area == Area.LutGholein || area == Area.KurastDocks ||
+            area == Area.ThePandemoniumFortress || area == Area.Harrogath;
+
+        public static bool IsWaypoint(this GameObject obj) => obj.ToString().Contains("Waypoint");
+
+        public static Point OffsetFrom(this Point point, Point offset)
+        {
+            return new Point(point.X - offset.X, point.Y - offset.Y);
+        }
     }
 }

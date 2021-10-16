@@ -1,6 +1,6 @@
-/**
+﻿/**
  *   Copyright (C) 2021 okaygo
- *   
+ *
  *   https://github.com/misterokaygo/D2RAssist/
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -17,26 +17,28 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
 
-using System;
-using System.Windows.Forms;
-using Gma.System.MouseKeyHook;
+using System.Collections.Generic;
+using System.Drawing;
+using D2RAssist.Types;
 
 namespace D2RAssist
 {
-    static class Program
+    public class AdjacentLevel
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            using (var globalHook = Hook.GlobalEvents())
-            {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Overlay(globalHook));
-            }
-        }
+        public Area Area;
+        public Point[] Exits;
+        public Point Origin;
+        public int Width;
+        public int Height;
+    }
+
+    public class AreaData
+    {
+        public Area Area;
+        public Point Origin;
+        public Dictionary<Area, AdjacentLevel> AdjacentLevels;
+        public int[][] CollisionGrid;
+        public Dictionary<NPC, Point[]> NPCs;
+        public Dictionary<GameObject, Point[]> Objects;
     }
 }

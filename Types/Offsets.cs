@@ -1,6 +1,6 @@
-/**
+﻿/**
  *   Copyright (C) 2021 okaygo
- *   
+ *
  *   https://github.com/misterokaygo/D2RAssist/
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -16,34 +16,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  **/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace D2RAssist
+namespace D2RAssist.Types
 {
-    class MapData
+    public static class Offsets
     {
-        public XY levelOrigin;
-        public Dictionary<string, AdjacentLevel> adjacentLevels;
-        public int[][] mapRows;
-        public Dictionary<string, XY[]> npcs;
-        public Dictionary<string, XY[]> objects;
-    }
-
-    class XY
-    {
-        public int x;
-        public int y;
-    }
-
-    class AdjacentLevel
-    {
-        public XY[] exits;
-        public XY origin;
-        public int width;
-        public int height;
+        public static int PlayerUnit = 0x205CE60;
+        public static int InGameMap = 0x2051342;
     }
 }
